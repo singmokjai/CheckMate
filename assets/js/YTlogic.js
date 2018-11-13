@@ -11,6 +11,7 @@ function youtubeApiCall(){
         data: $.extend({
             key: YTAPIkey,
             q: "jay-z",
+            id: "videoId",
             part: 'snippet'
         }, {maxResults:10}),
         dataType: 'json',
@@ -20,7 +21,7 @@ function youtubeApiCall(){
         url: queryURL
     })
    .done(function(data) {
-       $('.btn-group').show();
+    //    $('.btn-group').show();
        console.log(data);
     });
 };
@@ -50,10 +51,10 @@ function youtubeApiCall(){
 
 function channelCALL(){
    $.ajax({
-       url: "https://www.googleapis.com/youtube/v3/channels",
+       url: "https://www.googleapis.com/youtube/v3/channels/?key=AIzaSyBBvhR0unYtp88z1PIMHMBM9a4tg31DqVM&part=statistics&id=UCN-sc1xJr-QQNj_uNIM9wTA",
        method: "GET",
-       id: "UCbJG1HvzgzaMe_15xfiUyWw",
-       part: 'snippet'   
+    //    id: "UCbJG1HvzgzaMe_15xfiUyWw",
+    //    part: 'statistics'
     
    }).then(function(response){
         console.log("SECOND CALL -------------------")
