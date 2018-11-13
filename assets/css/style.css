@@ -3,10 +3,78 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: black;
+    background-color: cornsilk;
 }
 
 .container {
-    /* background: black; */
+
+}
+
+
+.sub-wrapper1 {
+
+    border-radius: 20px 50px;
+    width:  47%;
+    height: auto;
+    float: left;
+    margin-left: 20px;
+    margin-top: 25px;
+    background-color: slategray;
+    box-shadow: 10px 15px salmon;
+    
+    
+
+}
+
+.sub-wrapper2 {
+
+    border-radius: 20px 50px;
+    width: 47%;
+    height: auto;
+    float: right;
+    margin-right: 20px;
+    margin-top: 25px;
+    background-color: slategray;
+    box-shadow: 10px 15px salmon;
+
+}
+
+.displayInfo, .displayInfo1 {
+
+    background-color: aqua;
+    width: 100%;
+    height: 250px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 50px 20px;
+    overflow: auto;
+    
+
+}
+
+.manipulation, .manipulation1 {
+
+    background-color: cornflowerblue;
+    width: 100%;
+    height: 250px;
+    border-radius: 20px 50px;
+    overflow: auto;
+
+}
+
+h1 {
+
+    text-align: center;
+
+}
+
+header {
+
+    text-align: center;
+    color: crimson;
+    height: 50px;
+    padding-top: 20px;
+    background-color: gold;
+
 
 }
