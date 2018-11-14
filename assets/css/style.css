@@ -57,10 +57,10 @@ button {
 }
 
 .displayInfo {
-    position: absolute;
+    /* position: absolute; */
     top: 25%;
     width: 100%;
-    transform: translateY(-50%);
+    /* transform: translateY(-50%);  THIS WAS OUR BUG TO THE SEARCH FIELD */
     color: white;
     text-align: center;
     
