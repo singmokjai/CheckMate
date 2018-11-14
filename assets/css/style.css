@@ -3,78 +3,84 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: cornsilk;
+    /* background-color: black; */
+    background: url(../soundwave.jpg);
+    
 }
 
 .container {
 
 }
 
-
-.sub-wrapper1 {
-
-    border-radius: 20px 50px;
-    width:  47%;
-    height: auto;
-    float: left;
-    margin-left: 20px;
-    margin-top: 25px;
-    background-color: slategray;
-    box-shadow: 10px 15px salmon;
-    
-    
+.wrapper {
 
 }
 
-.sub-wrapper2 {
-
-    border-radius: 20px 50px;
-    width: 47%;
-    height: auto;
-    float: right;
-    margin-right: 20px;
-    margin-top: 25px;
-    background-color: slategray;
-    box-shadow: 10px 15px salmon;
-
+.title{
+    color: white;
+    text-align: right;
+    font-size: 50px;
+    margin: 30px 30px 0 0;
+    font-family: 'Kumar One Outline', cursive;
 }
 
-.displayInfo, .displayInfo1 {
-
-    background-color: aqua;
-    width: 100%;
-    height: 250px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    border-radius: 50px 20px;
-    overflow: auto;
-    
-
+.artistInfo {
+    /* text-align: center; */
 }
 
-.manipulation, .manipulation1 {
-
-    background-color: cornflowerblue;
-    width: 100%;
-    height: 250px;
-    border-radius: 20px 50px;
-    overflow: auto;
-
-}
-
-h1 {
-
+input {
+    background-color: white;
+    border: dashed white;
+    color: black;
+    padding: 14px 32px;
     text-align: center;
-
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
 }
 
-header {
-
+button {
+    background-color: #4CAF50; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
     text-align: center;
-    color: crimson;
-    height: 50px;
-    padding-top: 20px;
-    background-color: gold;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
 
+.fa-search {
+}
 
+.displayInfo {
+    position: absolute;
+    top: 25%;
+    width: 100%;
+    transform: translateY(-50%);
+    color: white;
+    text-align: center;
+    
+}
+
+.sizing {
+    display: inline-block;
+    width: 150px;
+    height: 125px;
+    border: 2px dotted white;
+    margin: 10px;
+    /* border-radius: 50%; */
+    overflow: hidden;
+    font-size: 26px;
+    padding: 20px;
+    
+}
+
+.sizing span {
+    display: block;
+    font-size: 26px;
+    margin-top: 30px;
 }

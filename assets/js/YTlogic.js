@@ -4,61 +4,40 @@ var artistInformation = "Jay-Z";
 var YTAPIkey = "AIzaSyBBvhR0unYtp88z1PIMHMBM9a4tg31DqVM";
 var queryURL = "https://www.googleapis.com/youtube/v3/search";
 
-console.log("FIRST CALL -------------------")
 function youtubeApiCall(){
     $.ajax({
         cache: false,
         data: $.extend({
             key: YTAPIkey,
-            q: "jay-z",
+            q: artistInformation,
             id: "videoId",
-            part: 'snippet'
-        }, {maxResults:10}),
+            part: 'snippet',
+        }, {maxResults:1}),
         dataType: 'json',
-        // type: 'GET',
         method: "GET",
-        timeout: 5000,
+        // timeout: 5000,
         url: queryURL
     })
    .done(function(data) {
-    //    $('.btn-group').show();
        console.log(data);
     });
 };
 
    youtubeApiCall();
 
-   
-// function anotherYoutubeApiCall(){
-//         $.ajax({
-//                 key: YTAPIkey,
-//                 part: 'snippet,contentDetails,statistics',
-
-//              {maxResults:5}),
-//             method: "GET",
-//             url: "https://www.googleapis.com/youtube/v3/channels"
-            
-//         })
-//     .done(function(response) {
-//         $('.btn-group').show();
-//         console.log("SECOND CALL -------------------")
-//         console.log(response);
-        
-//         });
-//    };
-
-//    anotherYoutubeApiCall()
-
 function channelCALL(){
    $.ajax({
-       url: "https://www.googleapis.com/youtube/v3/channels/?key=AIzaSyBBvhR0unYtp88z1PIMHMBM9a4tg31DqVM&part=statistics&id=UCN-sc1xJr-QQNj_uNIM9wTA",
+       url: "https://www.googleapis.com/youtube/v3/channels/?key=" + YTAPIkey + "&part=statistics&id=UCBJycsmduvYEL83R_U4JriQ",
        method: "GET",
-    //    id: "UCbJG1HvzgzaMe_15xfiUyWw",
-    //    part: 'statistics'
     
    }).then(function(response){
-        console.log("SECOND CALL -------------------")
-       console.log(response)
+       console.log(response);
    })
-}
+};
 channelCALL()
+
+// this will count up the numbers using a time scheme
+$(".numb").counterUp({
+    delay: 10,
+    time: 1000,
+});
