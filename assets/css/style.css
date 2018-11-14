@@ -9,11 +9,13 @@ body {
 }
 
 .container {
-
+    margin: 50px 50px;
+    padding: 20px 20px;
 }
 
 .wrapper {
-
+    margin: 25px 25px;
+    padding: 15px 15px;
 }
 
 .title{
@@ -25,7 +27,7 @@ body {
 }
 
 .artistInfo {
-    /* text-align: center; */
+    
 }
 
 input {
@@ -37,6 +39,7 @@ input {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+    font-family: 'Indie Flower', cursive;
     margin: 4px 2px;
 }
 
@@ -52,8 +55,13 @@ button {
     margin: 4px 2px;
     cursor: pointer;
 }
-
-.fa-search {
+button:hover{
+    border: solid 2px #FF8119;
+    background-color: #1597AF;
+    color: #FFDA19;
+}
+.fa-search{
+    letter-spacing: 2px;
 }
 
 .displayInfo {
@@ -76,7 +84,7 @@ button {
     overflow: hidden;
     font-size: 26px;
     padding: 20px;
-    
+    font-family: 'Pacifico', cursive;
 }
 
 .sizing span {
