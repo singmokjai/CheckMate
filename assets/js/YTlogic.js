@@ -1,6 +1,6 @@
 ////// YOUTUBE LOGIC /////
 
-var artistInformation = "Jay-Z";
+var artistInformation = "JayZ";
 var YTAPIkey = "AIzaSyBBvhR0unYtp88z1PIMHMBM9a4tg31DqVM";
 var queryURL = "https://www.googleapis.com/youtube/v3/search";
 
@@ -27,9 +27,10 @@ function youtubeApiCall(){
 
 function channelCALL(){
    $.ajax({
-       url: "https://www.googleapis.com/youtube/v3/channels/?key=" + YTAPIkey + "&part=statistics&id=UCBJycsmduvYEL83R_U4JriQ",
+       url: "https://www.googleapis.com/youtube/v3/channels/?key=" + YTAPIkey + "&part=statistics&forUsername=" + artistInformation,
        method: "GET",
     
+    //    id=UCBJycsmduvYEL83R_U4JriQ
    }).then(function(response){
        console.log(response);
    })
