@@ -1,37 +1,39 @@
 ////// YOUTUBE LOGIC /////
 
-var artistInformation = "Jay-Z";
+var artistInformation = "Drake";
 var YTAPIkey = "AIzaSyBBvhR0unYtp88z1PIMHMBM9a4tg31DqVM";
-var queryURL = "https://www.googleapis.com/youtube/v3/search";
+var queryURL = "https://www.googleapis.com/youtube/v3/channels/";
 
-function youtubeApiCall(){
-    $.ajax({
-        cache: false,
-        data: $.extend({
-            key: YTAPIkey,
-            q: artistInformation,
-            id: "videoId",
-            part: 'snippet',
-        }, {maxResults:1}),
-        dataType: 'json',
-        method: "GET",
-        // timeout: 5000,
-        url: queryURL
-    })
-   .done(function(data) {
-       console.log(data);
-    });
-};
+// function youtubeApiCall(){
+//     $.ajax({
+//         cache: false,
+//         data: $.extend({
+//             key: YTAPIkey,
+//             q: artistInformation,
+//             id: "videoId",
+//             part: 'snippet',
+//         }, {maxResults:1}),
+//         dataType: 'json',
+//         method: "GET",
+//         // timeout: 5000,
+//         url: queryURL
+//     })
+//    .done(function(data) {
+//        console.log(data);
+//     });
+// };
 
-   youtubeApiCall();
+//    youtubeApiCall();
 
 function channelCALL(){
    $.ajax({
-       url: "https://www.googleapis.com/youtube/v3/channels/?key=" + YTAPIkey + "&part=statistics&id=UCBJycsmduvYEL83R_U4JriQ",
+       url: queryURL + "?key=" + YTAPIkey + "&part=statistics&forUsername=" + artistInformation,
        method: "GET",
     
+    //    id=UCBJycsmduvYEL83R_U4JriQ
    }).then(function(response){
        console.log(response);
+       
    })
 };
 channelCALL()
