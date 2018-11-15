@@ -33,6 +33,7 @@ function channelCALL(){
     //    id=UCBJycsmduvYEL83R_U4JriQ
    }).then(function(response){
        console.log(response);
+       
    })
 };
 channelCALL()
