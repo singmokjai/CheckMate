@@ -1,42 +1,55 @@
 ////// YOUTUBE LOGIC /////
 
-var artistInformation = "Drake";
+var artistInformation = "lilwayne"
 var YTAPIkey = "AIzaSyBBvhR0unYtp88z1PIMHMBM9a4tg31DqVM";
 var queryURL = "https://www.googleapis.com/youtube/v3/channels/";
+var encodePart = encodeURIComponent("contentDetails,statistics");
 
-// function youtubeApiCall(){
-//     $.ajax({
-//         cache: false,
-//         data: $.extend({
-//             key: YTAPIkey,
-//             q: artistInformation,
-//             id: "videoId",
-//             part: 'snippet',
-//         }, {maxResults:1}),
-//         dataType: 'json',
-//         method: "GET",
-//         // timeout: 5000,
-//         url: queryURL
-//     })
-//    .done(function(data) {
-//        console.log(data);
-//     });
-// };
+function youtubeApiCall(){
+    $.ajax({
+        cache: false,
+        data: $.extend({
+            key: YTAPIkey,
+            q: artistInformation,
+            part: 'snippet',
+        }, {maxResults:15}),
+        method: "GET",
+        url: "https://www.googleapis.com/youtube/v3/search/",
+        
+    })
+   .done(function(data) {
+       console.log(data);
+    //    console.log(data.items[0].snippet.channelTitle)
+       for(var i = 0; i < data.items.length; i++ ) {
+        console.log("---------Channel Title------")
+        var channelTitle = data.items[i].snippet.channelTitle;
+        console.log(channelTitle);
+        console.log("---------Channel ID------")
+        var channelID = data.items[i].snippet.channelId;
+        console.log(channelID);
 
-//    youtubeApiCall();
+        if (artistInformation === channelTitle) {
+            console.log("here is the channel id:" + channelID)
+        } else {
+            console.log("nothing found")
+        }
 
-function channelCALL(){
-   $.ajax({
-       url: queryURL + "?key=" + YTAPIkey + "&part=statistics&forUsername=" + artistInformation,
-       method: "GET",
-    
-    //    id=UCBJycsmduvYEL83R_U4JriQ
-   }).then(function(response){
-       console.log(response);
-       
-   })
+       }
+    });
 };
-channelCALL()
+
+   youtubeApiCall();
+
+// this function is to get the information from the channel
+// function channelCALL(){
+//    $.ajax({
+//        url: queryURL + "?key=" + YTAPIkey + "&part=" + encodePart +"&forUsername=" + artistInformation + "&maxResults=10",
+//        method: "GET",
+//    }).then(function(response){
+//        console.log(response);
+//    })
+// };
+// channelCALL()
 
 // this will count up the numbers using a time scheme
 $(".numb").counterUp({
