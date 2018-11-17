@@ -19,27 +19,45 @@ function displayArtistInfo() {
         var artistImg = $("<img>").attr("src", artistURL);
         // artistInfo
         var artistInfo = response.results.artistmatches.artist["0"].listeners;
-        $("#you-art-info").append(artistImg);
-        $("#you-art-info").append("Listeners: " + artistInfo);
+        $("#you-art-info").html(artistImg);
+        $("#listenersLive").html("Listeners: " + artistInfo);
 
+        
         
 
     });
 };
 
 
+//function clears Input field
 
+function clearFields() {
+
+    document.getElementById("userInput").value = "";
+   
+};
+
+// on click event for the search button
 $("#subBut").on("click", function (event) {
-
     event.preventDefault();
-    // This line grabs the input from the textbox
     displayArtistInfo();
-    var newArtist = $("#animal-input").val().trim();
-
-    
-    
-    displayArtistInfo();
+    clearFields();
+  
+ 
 });
+
+
+// keypress event for enter key
+$("#userInput").on("keypress", function (enterEvent){
+   
+    var keycode = (enterEvent.keyCode ? enterEvent.keyCode : enterEvent.which);
+    if(keycode == '13'){
+        displayArtistInfo();
+        clearFields();
+    }
+      
+});
+
 
 
 
