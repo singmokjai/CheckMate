@@ -14,7 +14,7 @@ function youtubeApiCall(){
             key: YTAPIkey,
             q: artistInformation,
             part: 'snippet',
-        }, {maxResults:50}),
+        }, {maxResults:1}),
         method: "GET",
         url: "https://www.googleapis.com/youtube/v3/search/",
         
@@ -55,11 +55,36 @@ function channelCALL(channelID){
    $.ajax({
        url: queryURL + "?key=" + YTAPIkey + "&part=" + encodePart +"&id=" + channelID + "&maxResults=10",
        method: "GET",
-   }).then(function(response){
+   }).then(function(results){
        console.log("-------channelCALL Response-------")
-       console.log(response);
+       console.log(results);
+       var subCount = results.items[0].statistics.subscriberCount;
+       console.log("here is subcount: " + subCount);
+       var vCount = results.items[0].statistics.viewCount;
+       console.log("here is viewcount: " + vCount);
+
+       $(".vStat").append(vCount);
+       $(".subStat").append(subCount);
+
+
+
+    
+
+
+
+
    })
+
+
+
+
+
 };
+
+
+
+
+
 
 // // this will count up the numbers using a time scheme
 // $(".numb").counterUp({
