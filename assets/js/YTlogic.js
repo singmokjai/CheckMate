@@ -1,9 +1,11 @@
 ////// YOUTUBE LOGIC /////
 
-var artistInformation = "lilwayne"
+var artistInformation = "lil wayne"
 var YTAPIkey = "AIzaSyBBvhR0unYtp88z1PIMHMBM9a4tg31DqVM";
 var queryURL = "https://www.googleapis.com/youtube/v3/channels/";
 var encodePart = encodeURIComponent("contentDetails,statistics");
+
+var _channelId = youtubeApiCall();
 
 function youtubeApiCall(){
     $.ajax({
@@ -12,24 +14,32 @@ function youtubeApiCall(){
             key: YTAPIkey,
             q: artistInformation,
             part: 'snippet',
-        }, {maxResults:15}),
+        }, {maxResults:50}),
         method: "GET",
         url: "https://www.googleapis.com/youtube/v3/search/",
         
     })
-   .done(function(data) {
+.done(function(data) {
        console.log(data);
     //    console.log(data.items[0].snippet.channelTitle)
        for(var i = 0; i < data.items.length; i++ ) {
         console.log("---------Channel Title------")
-        var channelTitle = data.items[i].snippet.channelTitle;
-        console.log(channelTitle);
+        var channelTitle = data.items[i].snippet.channelTitle
+        var lcChannelTitle = channelTitle.toLowerCase().replace(/[^\w]/gi,"");
+        console.log('channelTitle: ' + channelTitle)
+        console.log('lcChannelTitle : ' + lcChannelTitle);
+
         console.log("---------Channel ID------")
         var channelID = data.items[i].snippet.channelId;
         console.log(channelID);
 
-        if (artistInformation === channelTitle) {
+        var _artistInfo = artistInformation.toLocaleLowerCase().replace(/[^\w]/gi, "");
+
+        if (_artistInfo === lcChannelTitle) {
             console.log("here is the channel id:" + channelID)
+            // call the next function
+            channelCALL(channelID);
+            break
         } else {
             console.log("nothing found")
         }
@@ -38,18 +48,18 @@ function youtubeApiCall(){
     });
 };
 
-   youtubeApiCall();
+
 
 // this function is to get the information from the channel
-// function channelCALL(){
-//    $.ajax({
-//        url: queryURL + "?key=" + YTAPIkey + "&part=" + encodePart +"&forUsername=" + artistInformation + "&maxResults=10",
-//        method: "GET",
-//    }).then(function(response){
-//        console.log(response);
-//    })
-// };
-// channelCALL()
+function channelCALL(channelID){
+   $.ajax({
+       url: queryURL + "?key=" + YTAPIkey + "&part=" + encodePart +"&id=" + channelID + "&maxResults=10",
+       method: "GET",
+   }).then(function(response){
+       console.log("-------channelCALL Response-------")
+       console.log(response);
+   })
+};
 
 // this will count up the numbers using a time scheme
 $(".numb").counterUp({
