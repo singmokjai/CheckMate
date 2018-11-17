@@ -3,10 +3,92 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: black;
+    /* background-color: black; */
+    background: url(../soundwave.jpg);
+    
 }
 
 .container {
-    /* background: black; */
+    margin: 20px 20px;
+    padding: 10px 10px;
+}
 
+.wrapper {
+    margin: 15px 15px;
+    padding: 5px 5px;
+}
+
+.title{
+    color: white;
+    text-align: right;
+    font-size: 50px;
+    margin: 30px 30px 0 0;
+    font-family: 'Kumar One Outline', cursive;
+}
+
+input {
+    background-color: white;
+    border: dashed white;
+    color: black;
+    padding: 14px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-family: 'Indie Flower', cursive;
+    margin: 4px 2px;
+}
+
+button {
+    background-color: #4CAF50; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+button:hover{
+    border: solid 2px #FF8119;
+    background-color: #1597AF;
+    color: #FFDA19;
+}
+.fa-search{
+    letter-spacing: 2px;
+}
+
+.displayInfo {
+    /* position: absolute; */
+    top: 25%;
+    width: 100%;
+    /* transform: translateY(-50%);  THIS WAS OUR BUG TO THE SEARCH FIELD */
+    color: white;
+    text-align: center;
+    
+}
+
+.sizing {
+    display: inline-block;
+    width: 150px;
+    height: 125px;
+    border: 2px dotted white;
+    margin: 10px;
+    /* border-radius: 50%; */
+    overflow: hidden;
+    font-size: 26px;
+    padding: 20px;
+    font-family: 'Pacifico', cursive;
+}
+
+.sizing span {
+    display: block;
+    font-size: 26px;
+    margin-top: 30px;
+}
+
+#you-art-info {
+    color: white;
 }
