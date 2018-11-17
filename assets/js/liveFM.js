@@ -1,7 +1,4 @@
 
-
-
-
 function displayArtistInfo() {
     var queryURL = "http://ws.audioscrobbler.com/2.0/?method=artist.search&limit=1&artist=";
     var artistName = $("#userInput").val().trim();
