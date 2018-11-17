@@ -4,8 +4,7 @@ body {
     margin: 0;
     padding: 0;
     /* background-color: black; */
-    background: url(../soundwave.jpg);
-    background-size: 100%;
+    background: url(../background1.jpeg);
 }
 
 .container {
@@ -24,7 +23,7 @@ body {
     color: white;
     text-align: right;
     font-size: 50px;
-    margin: 30px 30px 0 0;
+    margin: 15px 155px 15px 0;
     font-family: 'Kumar One Outline', cursive;
 }
 
@@ -92,16 +91,16 @@ h2{
     margin: 10px 0;
 }
 .manipulation{
+    margin: 25px 25px;
+    padding: 15px 15px;
     color: #eeeeee;
+    float: right;
 }
 .copyInfo{
     color: #eeeeee;
-    margin: 10px 10px;
-    padding: 10px 10px;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
+    position: relative;
+    margin-top: -180px;
+    clear: both;
     text-align: center;
     font-family: 'Indie Flower', cursive;
     font-size: 22px;
