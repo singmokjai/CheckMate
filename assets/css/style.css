@@ -5,18 +5,20 @@ body {
     padding: 0;
     /* background-color: black; */
     background: url(../soundwave.jpg);
-    
+    background-size: 100%;
 }
 
 .container {
     margin: 20px 20px;
     padding: 10px 10px;
 }
-
 .wrapper {
     margin: 15px 15px;
     padding: 5px 5px;
+    text-align: center;
+    float: left;
 }
+
 
 .title{
     color: white;
@@ -33,7 +35,6 @@ input {
     padding: 14px 32px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
     font-size: 16px;
     font-family: 'Indie Flower', cursive;
     margin: 4px 2px;
@@ -46,7 +47,6 @@ button {
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
@@ -66,25 +66,27 @@ button:hover{
     width: 100%;
     /* transform: translateY(-50%);  THIS WAS OUR BUG TO THE SEARCH FIELD */
     color: white;
-    text-align: center;
     
 }
 
 .sizing {
-    display: inline-block;
-    width: 150px;
-    height: 125px;
+    width: 125px;
+    height: 75px;
     border: 2px dotted white;
     margin: 10px;
     /* border-radius: 50%; */
-    overflow: hidden;
     font-size: 26px;
     padding: 20px;
     font-family: 'Pacifico', cursive;
+    float: left;
 }
 
-.sizing span {
+/* .sizing span {
     display: block;
     font-size: 26px;
     margin-top: 30px;
+} */
+h2{
+    font-family: 'Pacifico', cursive;
+    font-size: 25px;
 }
