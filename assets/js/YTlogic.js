@@ -6,7 +6,6 @@ var queryURL = "https://www.googleapis.com/youtube/v3/channels/";
 var encodePart = encodeURIComponent("contentDetails,statistics");
 
 
-
 $("#subBut").on("click", function (event){
     
     var artistInformation = $("#userInput").val();
