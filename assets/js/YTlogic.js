@@ -7,11 +7,13 @@ var encodePart = encodeURIComponent("contentDetails,statistics");
 
 
 
-$("#subBut").on("click", function (event){
-    
+$("#userInput").keyup(function (event){
+    if(event.keyup === 13){
+        $("#subBut").click();
+    }
     var artistInformation = $("#userInput").val();
     youtubeApiCall(artistInformation);
-
+    
 });
 
 function youtubeApiCall(artistInformation){
@@ -57,7 +59,7 @@ function youtubeApiCall(artistInformation){
 
 
 
-// this function is to get the information from the channel
+// this function will get the information from the channel
 function channelCALL(channelID){
    $.ajax({
        url: queryURL + "?key=" + YTAPIkey + "&part=" + encodePart +"&id=" + channelID + "&maxResults=10",
