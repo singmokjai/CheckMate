@@ -37,6 +37,7 @@ input {
     font-size: 20px;
     font-family: 'Indie Flower', cursive;
     margin: 4px 2px;
+    font-weight: bold;
 }
 
 button {
