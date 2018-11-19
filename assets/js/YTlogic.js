@@ -6,12 +6,15 @@ var queryURL = "https://www.googleapis.com/youtube/v3/channels/";
 var encodePart = encodeURIComponent("contentDetails,statistics");
 
 
-$("#subBut").on("click", function (event){
-    
+$("#userInput").keyup(function (event){
+    if(event.keyup === 13){
+        $("#subBut").click();
+    }
     var artistInformation = $("#userInput").val();
     youtubeApiCall(artistInformation);
-
+    
 });
+
 
 function youtubeApiCall(artistInformation){
     $.ajax({
