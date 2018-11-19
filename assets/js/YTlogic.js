@@ -6,7 +6,6 @@ var queryURL = "https://www.googleapis.com/youtube/v3/channels/";
 var encodePart = encodeURIComponent("contentDetails,statistics");
 
 
-
 $("#subBut").on("click", function (event){
     
     var artistInformation = $("#userInput").val();
@@ -69,10 +68,10 @@ function channelCALL(channelID){
        $("#stats").text(result.items[0].statistics.subscriberCount);
 
        console.log(result.items[0].statistics.videoCount)
-       $("#vid").text(result.items[0].statistics.videoCount);
+       $("#view").text(result.items[0].statistics.videoCount);
 
        console.log(result.items[0].statistics.viewCount)
-       $("#view").text(result.items[0].statistics.viewCount);
+       $("#vid").text(result.items[0].statistics.viewCount);
 
    })
 };
