@@ -95,10 +95,20 @@ function channelCALL(channelID){
        $("#vid").text(result.items[0].statistics.viewCount);
 
    })
+
+
+
+
+
 };
 
-// this will count up the numbers using a time scheme
-$(".numb").counterUp({
-    delay: 10,
-    time: 1000,
-});
+
+
+
+
+
+// // this will count up the numbers using a time scheme
+// $(".numb").counterUp({
+//     delay: 10,
+//     time: 1000,
+// });
