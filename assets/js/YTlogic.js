@@ -35,8 +35,10 @@ function youtubeApiCall(artistInformation){
         console.log("---------Channel Title------")
         var channelTitle = data.items[i].snippet.channelTitle
         var lcChannelTitle = channelTitle.toLowerCase().replace(/[^\w]/gi,"");
+        // var videoLink = data.items[i].id.videoId;
         console.log('channelTitle: ' + channelTitle)
         console.log('lcChannelTitle : ' + lcChannelTitle);
+        // console.log('videoId : ' + videoLink);
 
         console.log("---------Channel ID------")
         var channelID = data.items[i].snippet.channelId;
@@ -46,8 +48,9 @@ function youtubeApiCall(artistInformation){
 
         if (_artistInfo === lcChannelTitle) {
             console.log("here is the channel id:" + channelID)
-            // call the next function
+            // call the channel function
             channelCALL(channelID);
+            // videoCall(videoLink);
             break
         } else {
             console.log("nothing found")
@@ -77,6 +80,28 @@ function channelCALL(channelID){
        $("#vid").text(result.items[0].statistics.viewCount);
 
    })
+};
+
+function videoCall(videoLink){
+    $.ajax({
+        cache: false,
+        vidData: $.extend({
+            key: YTAPIkey,
+            q: artistInformation,
+            part: 'snippet',
+            order: 'viewCount',
+            channelId: channelID,
+        }, {maxResults:2}),
+        method: "GET",
+        url: "https://www.googleapis.com/youtube/v3/search/",
+        
+    })
+.then(function(vidData) {
+        console.log("VIDEO INFORMATION")
+       console.log(vidData);
+       console.log(vidData.items[0].id.videoId)
+       
+    });
 };
 
 // this will count up the numbers using a time scheme
