@@ -8,7 +8,7 @@ var encodePart = encodeURIComponent("contentDetails,statistics");
 
 
 $("#userInput").keyup(function (event){
-    if(event.keyup === 13){
+    if(event.keyCode === 13){
         $("#subBut").click();
     }
     var artistInformation = $("#userInput").val();
@@ -43,7 +43,8 @@ function youtubeApiCall(artistInformation){
 
         
         
-        $("#artistVid").attr('src',"https://www.youtube.com/embed/" + videoLink + "?ecver=2" );
+        $("#artistVid").attr('src',"https://www.youtube.com/embed/" + videoLink );
+        // $("#artistVid").attr('src',"https://www.youtube.com/watch?v=" + videoLink );
         console.log($("#artistVid"));
     
 
