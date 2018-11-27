@@ -47,7 +47,7 @@ function displayArtistInfo() {
         });
         var pR = formatter.format(revNum);
 
-
+        $("#you-mani").text("Revenue = " + pR)
 
         // var pR = revNum.toFixed(2);
         console.log("Revenue = " + pR);

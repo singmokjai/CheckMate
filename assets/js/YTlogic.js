@@ -88,14 +88,14 @@ function channelCALL(channelID){
 };
 
 // this will count up the numbers using a time scheme
-$(".numb").counterUp({
-    delay: 10,
-    time: 1000,
-});
+// $(".numb").counterUp({
+//     delay: 10,
+//     time: 4000,
+// });
 
 // on click event for the search button
 $("#subBut").on("click", function (event) {
-    // event.preventDefault();
+    event.preventDefault();
     var artistInformation = $("#userInput").val();
     console.log('subBut artistinfo: ', artistInformation);
     youtubeApiCall(artistInformation);
