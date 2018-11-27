@@ -4,25 +4,11 @@
 var YTAPIkey = "AIzaSyBBvhR0unYtp88z1PIMHMBM9a4tg31DqVM";
 var queryURL = "https://www.googleapis.com/youtube/v3/channels/";
 var encodePart = encodeURIComponent("contentDetails,statistics");
-// var videoURL = videoLink;
 
 // Declaring varables to store views, subs and vid count
 var ytViews;
 var ytSubs;
 var ytVids;
-
-
-
-// $("#userInput").keyup(function (event){
-//     if(event.keyCode === 13){
-//         $("#subBut").click();
-//     }
-//     var artistInformation = $("#userInput").val();
-//     youtubeApiCall(artistInformation);
-    
-// });
-
-// var artistInformation = $("#userInput").val();
 
 function youtubeApiCall(artistInformation){
     console.log('API request info: ', artistInformation)
@@ -66,8 +52,6 @@ function youtubeApiCall(artistInformation){
             // call the channel function
             channelCALL(channelID);
             break;
-            // $("#artistVid").attr('src',"https://www.youtube.com/embed/" + videoLink + "?ecver=2");
-            
         } else {
             console.log("nothing found")
         }
@@ -108,8 +92,6 @@ $(".numb").counterUp({
     delay: 10,
     time: 1000,
 });
-
-//function clears Input field
 
 // on click event for the search button
 $("#subBut").on("click", function (event) {
