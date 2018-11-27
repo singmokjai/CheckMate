@@ -7,49 +7,48 @@ var encodePart = encodeURIComponent("contentDetails,statistics");
 // var videoURL = videoLink;
 
 
-$("#userInput").keyup(function (event){
-    if(event.keyCode === 13){
-        $("#subBut").click();
-    }
-    var artistInformation = $("#userInput").val();
-    youtubeApiCall(artistInformation);
+// $("#userInput").keyup(function (event){
+//     if(event.keyCode === 13){
+//         $("#subBut").click();
+//     }
+//     var artistInformation = $("#userInput").val();
+//     youtubeApiCall(artistInformation);
     
-});
+// });
 
+// var artistInformation = $("#userInput").val();
 
 function youtubeApiCall(artistInformation){
+    console.log('API request info: ', artistInformation)
     $.ajax({
         cache: false,
         data: $.extend({
             key: YTAPIkey,
             q: artistInformation,
             part: 'snippet',
-        }, {maxResults:2}),
+        }, {maxResults:50}),
         method: "GET",
         url: "https://www.googleapis.com/youtube/v3/search/",
         
     })
 .done(function(data) {
-       console.log(data);
+       console.log('response data: ', data);
     //    console.log(data.items[0].snippet.channelTitle)
        for(var i = 0; i < data.items.length; i++ ) {
         console.log("---------Channel Title------")
         var channelTitle = data.items[i].snippet.channelTitle
-        var lcChannelTitle = channelTitle.toLowerCase().replace(/[^\w]/gi,"");
-        var videoLink = data.items[i].id.videoId;
+        var lcChannelTitle = channelTitle.toLowerCase().replace(/[^\w]/gi,""); 
+        var videoLink = data.items[0].id.videoId ? data.items[0].id.videoId : null;
         console.log('channelTitle: ' + channelTitle)
         console.log('lcChannelTitle : ' + lcChannelTitle);
         console.log("videoID: " + videoLink);
 
         
-        
-        $("#artistVid").attr('src',"https://www.youtube.com/embed/" + videoLink );
-        // $("#artistVid").attr('src',"https://www.youtube.com/watch?v=" + videoLink );
+        if(videoLink) {
+            $("#artistVid").attr('src',"https://www.youtube.com/embed/" + videoLink );
+        }
         console.log($("#artistVid"));
     
-
-
-
         console.log("---------Channel ID------")
         var channelID = data.items[i].snippet.channelId;
         console.log(channelID);
@@ -71,13 +70,6 @@ function youtubeApiCall(artistInformation){
     });
 };
 
-// Input the videoID from youtubeapi() and include into embedded YT link to display video on page
-
-
-
-
-
-
 // this function is to get the information from the channel
 function channelCALL(channelID){
    $.ajax({
@@ -97,19 +89,33 @@ function channelCALL(channelID){
 
    })
 
-
-
-
-
 };
 
+// this will count up the numbers using a time scheme
+$(".numb").counterUp({
+    delay: 10,
+    time: 1000,
+});
+
+//function clears Input field
+
+// on click event for the search button
+$("#subBut").on("click", function (event) {
+    // event.preventDefault();
+    var artistInformation = $("#userInput").val();
+    console.log('subBut artistinfo: ', artistInformation);
+    youtubeApiCall(artistInformation);
+ 
+});
 
 
-
-
-
-// // this will count up the numbers using a time scheme
-// $(".numb").counterUp({
-//     delay: 10,
-//     time: 1000,
-// });
+// keypress event for enter key
+$("#userInput").on("keypress", function (enterEvent){
+   
+    var keycode = (enterEvent.keyCode ? enterEvent.keyCode : enterEvent.which);
+    if(keycode == '13'){
+        var artistInformation = $("#userInput").val();
+        youtubeApiCall(artistInformation);
+    }
+      
+});
