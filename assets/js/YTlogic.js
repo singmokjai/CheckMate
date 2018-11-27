@@ -6,6 +6,12 @@ var queryURL = "https://www.googleapis.com/youtube/v3/channels/";
 var encodePart = encodeURIComponent("contentDetails,statistics");
 // var videoURL = videoLink;
 
+// Declaring varables to store views, subs and vid count
+var ytViews;
+var ytSubs;
+var ytVids;
+
+
 
 // $("#userInput").keyup(function (event){
 //     if(event.keyCode === 13){
@@ -86,6 +92,12 @@ function channelCALL(channelID){
 
        console.log(result.items[0].statistics.viewCount)
        $("#vid").text(result.items[0].statistics.viewCount);
+    // assigns data to sub, vid, view count variables
+       ytSubs = result.items[0].statistics.subscriberCount;
+       ytVids = result.items[0].statistics.videoCount;
+       ytViews = result.items[0].statistics.viewCount;
+    // returns values so varaiables are accessible outside function
+       return ytSubs, ytVids, ytViews;
 
    })
 

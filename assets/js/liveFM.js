@@ -1,4 +1,20 @@
+// Gives access to data inside the YTlogic.js file
 
+function getScript(url, callback) {
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = "assets/js/YTlogic.js";
+ 
+    script.onreadystatechange = callback;
+    script.onload = callback;
+ 
+    document.getElementsByTagName('head')[0].appendChild(script);
+ }
+
+ 
+
+
+// // Calculates potential revenues based YouTube and LiveFM Data pulled from api
 function displayArtistInfo() {
     var queryURL = "https://ws.audioscrobbler.com/2.0/?method=artist.search&limit=1&artist=";
     var artistName = $("#userInput").val().trim();
@@ -18,8 +34,28 @@ function displayArtistInfo() {
         var artistInfo = response.results.artistmatches.artist["0"].listeners;
         $("#you-art-info").html(artistImg);
         $("#listenersLive").html("Listeners: " + artistInfo);
+       
+       // New code calculates and consoles data values from ytLogic & liveFM
+        getScript('assets/js/YTlogic.js', function(){
+            //    alert("queryURL = " + queryURL);
+                
+        var revNum = (parseInt(+ytViews + +ytSubs + +ytVids + +artistInfo) * (0.008));
+        const formatter = new Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: 'USD',
+            minimumFractionDigits: 2
+        });
+        var pR = formatter.format(revNum);
 
-        
+
+
+        // var pR = revNum.toFixed(2);
+        console.log("Revenue = " + pR);
+        console.log("YouTube Views = " + ytViews);
+        console.log("YouTube Subscribers = " + ytSubs);
+        console.log("YouTube Videos = " + ytVids);
+        console.log("Lisenters = " + artistInfo);
+        });
         
 
     });
