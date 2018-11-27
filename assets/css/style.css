@@ -114,3 +114,16 @@ p{
     margin: 10px 10px;
     padding: 10px 10px;
 }
+
+#you-mani {
+    width: 125px;
+    height: 75px;
+    border: 2px dotted white;
+    margin: 10px;
+    /* border-radius: 50%; */
+    font-size: 26px;
+    padding: 20px;
+    font-family: 'Pacifico', cursive;
+    float: left;
+    display: inline-block;
+}
