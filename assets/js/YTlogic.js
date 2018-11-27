@@ -4,6 +4,14 @@
 var YTAPIkey = "AIzaSyBBvhR0unYtp88z1PIMHMBM9a4tg31DqVM";
 var queryURL = "https://www.googleapis.com/youtube/v3/channels/";
 var encodePart = encodeURIComponent("contentDetails,statistics");
+// var videoURL = videoLink;
+
+// Declaring varables to store views, subs and vid count
+var ytViews;
+var ytSubs;
+var ytVids;
+
+
 
 
 $("#userInput").keyup(function (event){
@@ -23,7 +31,7 @@ function youtubeApiCall(artistInformation){
             key: YTAPIkey,
             q: artistInformation,
             part: 'snippet',
-        }, {maxResults:15}),
+        }, {maxResults:2}),
         method: "GET",
         url: "https://www.googleapis.com/youtube/v3/search/",
         
@@ -35,8 +43,18 @@ function youtubeApiCall(artistInformation){
         console.log("---------Channel Title------")
         var channelTitle = data.items[i].snippet.channelTitle
         var lcChannelTitle = channelTitle.toLowerCase().replace(/[^\w]/gi,"");
+        var videoLink = data.items[i].id.videoId;
         console.log('channelTitle: ' + channelTitle)
         console.log('lcChannelTitle : ' + lcChannelTitle);
+        console.log("videoID: " + videoLink);
+
+        
+        
+        $("#artistVid").attr('src',"https://www.youtube.com/embed/" + videoLink + "?ecver=2" );
+        console.log($("#artistVid"));
+    
+
+
 
         console.log("---------Channel ID------")
         var channelID = data.items[i].snippet.channelId;
@@ -48,7 +66,9 @@ function youtubeApiCall(artistInformation){
             console.log("here is the channel id:" + channelID)
             // call the next function
             channelCALL(channelID);
-            break
+            break;
+            // $("#artistVid").attr('src',"https://www.youtube.com/embed/" + videoLink + "?ecver=2");
+            
         } else {
             console.log("nothing found")
         }
@@ -56,6 +76,11 @@ function youtubeApiCall(artistInformation){
        }
     });
 };
+
+// Input the videoID from youtubeapi() and include into embedded YT link to display video on page
+
+
+
 
 
 
@@ -75,12 +100,28 @@ function channelCALL(channelID){
 
        console.log(result.items[0].statistics.viewCount)
        $("#vid").text(result.items[0].statistics.viewCount);
+    // assigns data to sub, vid, view count variables
+       ytSubs = result.items[0].statistics.subscriberCount;
+       ytVids = result.items[0].statistics.videoCount;
+       ytViews = result.items[0].statistics.viewCount;
+    // returns values so varaiables are accessible outside function
+       return ytSubs, ytVids, ytViews;
 
    })
+
+
+
+
+
 };
 
-// this will count up the numbers using a time scheme
-$(".numb").counterUp({
-    delay: 10,
-    time: 1000,
-});
+
+
+
+
+
+// // this will count up the numbers using a time scheme
+// $(".numb").counterUp({
+//     delay: 10,
+//     time: 1000,
+// });
