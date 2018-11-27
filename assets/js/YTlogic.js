@@ -13,7 +13,6 @@ var ytVids;
 
 
 
-
 $("#userInput").keyup(function (event){
     if(event.keyup === 13){
         $("#subBut").click();
@@ -124,4 +123,6 @@ function channelCALL(channelID){
 // $(".numb").counterUp({
 //     delay: 10,
 //     time: 1000,
+
 // });
+
