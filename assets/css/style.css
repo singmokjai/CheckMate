@@ -116,7 +116,7 @@ p{
 }
 
 #you-mani {
-    width: 125px;
+    width: auto;
     height: 75px;
     border: 2px dotted white;
     margin: 10px;
